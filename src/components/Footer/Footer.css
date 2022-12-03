@@ -1,0 +1,17 @@
+.foot-p{
+    font-size: 14px;
+    width: 50%;
+    text-align: left;
+}
+
+.tables{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    font-size: 14px;
+}
+
+td{
+    padding: 3% 0%;
+}

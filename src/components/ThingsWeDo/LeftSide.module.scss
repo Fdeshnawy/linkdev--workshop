@@ -1,0 +1,100 @@
+.square {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	right: 0;
+}
+.craft {
+	display: flex;
+	position: relative;
+	justify-content: right;
+	right: -174px;
+	position: relative;
+	top: -49px;
+	width: 200px;
+	height: 200px;
+	&:hover {
+		.over {
+			opacity: 1;
+		}
+	}
+}
+.craftTxt {
+	position: absolute;
+	right: 0;
+	color: white;
+	font-size: 12px;
+}
+.img--serv {
+	width: 200px;
+	height: 200px;
+}
+.over {
+	left: 0;
+	right: 0;
+	position: absolute;
+	top: 0;
+	width: 200px;
+	height: 200px;
+	color: green;
+	opacity: 0;
+	background-color: rgba(9, 9, 102, 0.238);
+}
+.craftTwo {
+	display: flex;
+	position: absolute;
+	left: -50px;
+	top: -30px;
+	flex-direction: column;
+}
+.set {
+	&:hover {
+		.over {
+			opacity: 1;
+		}
+	}
+}
+.squareTwo {
+	position: absolute;
+	right: 198px;
+	top: 130px;
+}
+.squareThree {
+	position: absolute;
+	left: -200px;
+	top: 105px;
+}
+.modern {
+	font-size: 13px;
+	position: relative;
+	color: white;
+	top: 105px;
+	right: -26px;
+}
+
+@media (max-width:1200px) {
+	.craft{
+		width: 100px;
+		height: 100px;
+	}
+	.img--serv {
+		width: 100px;
+		height: 100px;
+	}
+	.over {
+		width: 100px;
+		height: 100px;
+	}
+	.squareTwo {
+		right: 100px;
+	}
+	.squareThree {
+		position: relative;
+		left:-100px;
+		top:-126px;
+	}
+	.modern{
+		top:-15px;
+		left: 0;
+	}
+}

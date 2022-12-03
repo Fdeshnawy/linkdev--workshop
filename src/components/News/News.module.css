@@ -1,0 +1,36 @@
+.btn-bgg{
+    background-color: gainsboro !important;
+    color: rgb(59, 139, 166) !important;
+    margin: 0 10px;
+}
+.btn-bgg:hover{
+    background-color: #0aceff !important;
+    color: white !important;
+}
+
+.card-section{
+    padding: 4% 8%
+}
+.extraCard {
+    width: 19rem !important;
+    margin: 2% 6% !important ;
+
+}
+
+.textTitle
+{
+    text-align: left;
+font: normal normal 600 18px/22px Poppins;
+letter-spacing: 0px;
+color: #5E6282;
+opacity: 1;
+}
+.btn-cat{
+    
+    border-radius: 20px !important;
+    background-color: gainsboro !important;
+    color: rgb(59, 139, 166) !important;
+    padding: 3px 10px !important;
+   font-size: 12px !important;
+    margin-top: 10px !important;
+}
