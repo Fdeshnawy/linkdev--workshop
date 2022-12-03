@@ -6,7 +6,10 @@ import classes from "./News.module.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaLink } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
-
+// NEWS Component and highest priotity to client
+// Fetch api
+// Map on buttons
+// Map and sort on news card
 function News() {
   const [news, setNews] = useState([]);
   const [listing, setLists] = useState([]);
@@ -85,7 +88,7 @@ function News() {
           className={classes["btn-bgg"]}
           onClick={handleCategory}
         >
-          All
+          All News
         </Button>
         {news?.map((idx) => (
           <Button
@@ -111,70 +114,58 @@ function News() {
                 <p>No news Available</p>
               )}
 
-              {
-                // filteredCat?.sort(function(x, y) {
-                //   if (x.publishedDate < y.publishedDate) {
-                //     return -1;
-                //   }
-                //   if (x.publishedDate > y.publishedDate) {
-                //     return 1;
-                //   }
-                //   return 0;
-                // });
+              {filteredCat?.map((list) => {
+                if (list.showOnHomepage === "yes") {
+                  const date = format(
+                    new Date(list.publishedDate),
+                    "EEE dd MMM yyyy"
+                  );
+                  const showCat = news.map((getid) => {
+                    if (getid.id == list.categoryID) return getid.name;
+                  });
+                  //  const rec = list.publishedDate.sort((date1, date2) => date1 - date2);
 
-                filteredCat?.map((list) => {
-                  if (list.showOnHomepage === "yes") {
-                    const date = format(
-                      new Date(list.publishedDate),
-                      "EEE dd MMM yyyy"
-                    );
-                    const showCat = news.map((getid) => {
-                      if (getid.id == list.categoryID) return getid.name;
-                    });
-                    //  const rec = list.publishedDate.sort((date1, date2) => date1 - date2);
-
-                    return (
-                      <Card
-                        className=" extraCard col-lg-3"
-                        style={{ width: "" }}
-                        id={list.categoryID}
-                      >
-                        <Card.Img
-                          variant="top"
-                          src={list.urlToImage}
-                          alt="Image"
-                        />
-                        <Card.Body>
-                          <Card.Title className="textTitle">
-                            {list.title}
-                          </Card.Title>
-                          <Card.Text></Card.Text>
-                          <small className="text-muted d-flex">
-                            <FaRegCalendarAlt
-                              className="m-1"
-                              style={{ color: "#0aceff" }}
-                            />
-                            {date}
-                          </small>
-
-                          <div
+                  return (
+                    <Card
+                      className=" extraCard col-lg-3"
+                      style={{ width: "" }}
+                      id={list.categoryID}
+                    >
+                      <Card.Img
+                        variant="top"
+                        src={list.urlToImage}
+                        alt="Image"
+                      />
+                      <Card.Body>
+                        <Card.Title className="textTitle">
+                          {list.title}
+                        </Card.Title>
+                        <Card.Text></Card.Text>
+                        <small className="text-muted d-flex">
+                          <FaRegCalendarAlt
+                            className="m-1"
                             style={{ color: "#0aceff" }}
-                            className="d-flex justify-content-between"
-                          >
-                            <Button variant="" className={classes["btn-cat"]}>
-                              {showCat}
-                            </Button>
-                            <div>
-                              <FaRegHeart />
-                              <FaLink />
-                            </div>
+                          />
+                          {date}
+                        </small>
+
+                        <div
+                          style={{ color: "#0aceff" }}
+                          className="d-flex justify-content-between"
+                        >
+                          <Button variant="" className={classes["btn-cat"]}>
+                            {showCat}
+                          </Button>
+                          <div>
+                            <FaRegHeart />
+                            <FaLink />
                           </div>
-                        </Card.Body>
-                      </Card>
-                    );
-                  }
-                })
-              }
+                        </div>
+                      </Card.Body>
+                    </Card>
+                  );
+                }
+              })}
             </div>
           }
         </div>

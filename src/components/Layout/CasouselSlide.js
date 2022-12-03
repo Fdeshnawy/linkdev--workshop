@@ -12,8 +12,9 @@ import carouselThree from "../../assests/ImageThreeDecore.png";
 import decoreOne from "../../assests/Top-Nav-Decore.png";
 import decoreSecond from "../../assests/Decore.png";
 import decoreThree from "../../assests/thirdDecore.png";
-
-function Entry() {
+//Fetch data from api 
+//Adding animations
+function CasouselSlide() {
   const [user, setUser] = useState([]);
 
   const fetchData = () => {
@@ -86,4 +87,4 @@ function Entry() {
   );
 }
 
-export default Entry;
+export default CasouselSlide;

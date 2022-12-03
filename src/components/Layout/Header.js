@@ -1,12 +1,12 @@
 import NavigateHeader from "../UI/NavigateHeader";
-import Entry from "./Entry";
-
+import CasouselSlide from "./CasouselSlide";
+//Combines the Nav bar with Bannner
 const Header = (props) => {
   return (
     <>
       <NavigateHeader />
       <section  >
-        <Entry slides={props.slides} />
+        <CasouselSlide slides={props.slides} />
       </section>
     </>
   );
