@@ -18,6 +18,16 @@ function News() {
     return fetch("https://api.npoint.io/d275425a434e02acf2f7")
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
+        data.News.sort(function (x, y) {
+          if (x.publishedDate > y.publishedDate) {
+            return -1;
+          }
+          if (x.publishedDate < y.publishedDate) {
+            return 1;
+          }
+          return 0;
+        });
         setLists(data.News);
         setIsLoading(false);
       });
@@ -55,15 +65,7 @@ function News() {
 
     return filteredCategory;
   }
-  function filteredDate() {
-     listing.publishedDate.sort
-    (function(a,b){
-      return new Date(a).getTime() - new Date(b).getTime();
 
-    })
-
-    
-  }
   function handleCategory(e) {
     let typeCategory = e.target.id;
     typeCategory !== ""
@@ -108,65 +110,71 @@ function News() {
               ) : (
                 <p>No news Available</p>
               )}
-            
-              {  filteredDate && filteredCat?.map((list) => {
-               
-                
-                if (list.showOnHomepage === "yes") {
-                  const date = format(
-                    new Date(list.publishedDate),
-                    "EEE dd MMM yyyy"
-                  );
-                  const showCat = news.map((getid) => {
-                    if (getid.id == list.categoryID) return getid.name;
-                  });
-                  //  const rec = list.publishedDate.sort((date1, date2) => date1 - date2);
 
-                  return (
-                    <Card
-                      className=" extraCard col-lg-3"
-                      style={{ width: "" }}
-                      id={list.categoryID}
-                    >
-                      <Card.Img
-                        variant="top"
-                        src={list.urlToImage}
-                        alt="Image"
-                      />
-                      <Card.Body>
-                        <Card.Title className="textTitle">
-                          {list.title}
-                        </Card.Title>
-                        <Card.Text></Card.Text>
-                        <small className="text-muted d-flex">
-                          <FaRegCalendarAlt
-                            className="m-1"
+              {
+                // filteredCat?.sort(function(x, y) {
+                //   if (x.publishedDate < y.publishedDate) {
+                //     return -1;
+                //   }
+                //   if (x.publishedDate > y.publishedDate) {
+                //     return 1;
+                //   }
+                //   return 0;
+                // });
+
+                filteredCat?.map((list) => {
+                  if (list.showOnHomepage === "yes") {
+                    const date = format(
+                      new Date(list.publishedDate),
+                      "EEE dd MMM yyyy"
+                    );
+                    const showCat = news.map((getid) => {
+                      if (getid.id == list.categoryID) return getid.name;
+                    });
+                    //  const rec = list.publishedDate.sort((date1, date2) => date1 - date2);
+
+                    return (
+                      <Card
+                        className=" extraCard col-lg-3"
+                        style={{ width: "" }}
+                        id={list.categoryID}
+                      >
+                        <Card.Img
+                          variant="top"
+                          src={list.urlToImage}
+                          alt="Image"
+                        />
+                        <Card.Body>
+                          <Card.Title className="textTitle">
+                            {list.title}
+                          </Card.Title>
+                          <Card.Text></Card.Text>
+                          <small className="text-muted d-flex">
+                            <FaRegCalendarAlt
+                              className="m-1"
+                              style={{ color: "#0aceff" }}
+                            />
+                            {date}
+                          </small>
+
+                          <div
                             style={{ color: "#0aceff" }}
-                          />
-                          {date}
-                        </small>
-
-                        <div
-                          style={{ color: "#0aceff" }}
-                          className="d-flex justify-content-between"
-                        >
-                          <Button variant="" className={classes["btn-cat"]}>
-                            {showCat}
-                          </Button>
-                          <div>
-                            <FaRegHeart />
-                      
+                            className="d-flex justify-content-between"
+                          >
+                            <Button variant="" className={classes["btn-cat"]}>
+                              {showCat}
+                            </Button>
+                            <div>
+                              <FaRegHeart />
                               <FaLink />
-                   
-                             
-               
+                            </div>
                           </div>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  );
-                }
-              })}
+                        </Card.Body>
+                      </Card>
+                    );
+                  }
+                })
+              }
             </div>
           }
         </div>
@@ -182,4 +190,5 @@ function News() {
     </>
   );
 }
+
 export default News;
