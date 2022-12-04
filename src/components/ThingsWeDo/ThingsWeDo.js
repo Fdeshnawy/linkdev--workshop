@@ -1,27 +1,27 @@
 import classes from "./ThingsWeDo.module.scss";
 import LeftSide from "./LeftSide";
-
+import { useState ,useEffect} from "react";
 // Display the Title and descriptionns for Things we do.
 
 const ThingsWeDo = () => {
   // Api things is set by Nodejs and express to 
   //create json file and uploaded on Render to get the Link
   // Fetch ,Map
+// So instead I created a dummy api for backend to create 
+  const [api, setApi] = useState([]);
 
-  async function addHandler(backend) {
-    const response = await fetch(
-      "https://react-http-6b4a6.firebaseio.com/text.json",
-      {
-        method: "GET",
-        body: JSON.stringify(backend),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    console.log(data);
-  }
+  const fetchDataList = () => {
+    return fetch("https://thingswedo.getsandbox.com/users")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log([data]);
+        setApi([data]);
+      });
+  };
+
+  useEffect(() => {
+    fetchDataList();
+  }, []);
 
   return (
     <section className={classes.things}>

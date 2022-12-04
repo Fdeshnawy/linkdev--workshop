@@ -6,6 +6,8 @@ import classes from "./News.module.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaLink } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 // NEWS Component and highest priotity to client
 // Fetch api
 // Map on buttons
@@ -159,6 +161,8 @@ function News() {
                           <div>
                             <FaRegHeart />
                             <FaLink />
+                            <Link to={`/newsItem/${list.id}`}>News Item</Link>
+                            {/* <Link to="/newsItem">News Item</Link> */}
                           </div>
                         </div>
                       </Card.Body>
