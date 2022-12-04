@@ -13,7 +13,6 @@ import decoreOne from "../../assests/Top-Nav-Decore.png";
 import decoreSecond from "../../assests/Decore.png";
 import decoreThree from "../../assests/thirdDecore.png";
 import Spinner from 'react-bootstrap/Spinner';
-
 //Fetch data from api 
 //Adding animations
 function CasouselSlide() {
