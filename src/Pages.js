@@ -11,7 +11,8 @@ function Pages() {
       <BrowserRouter>
    
         <Routes>
-          
+        <Route path="/news" element={<News />} />
+          <Route path="/newsItem/:id" element={<Newsitem/>} />
         <Route path="/" element={<App />} />
      
         

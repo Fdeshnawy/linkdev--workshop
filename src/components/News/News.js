@@ -160,8 +160,8 @@ function News() {
                           </Button>
                           <div>
                             <FaRegHeart />
-                            <FaLink />
-                            <Link to={`/newsItem/${list.id}`}>News Item</Link>
+                         
+                            <Link to={`/newsItem/${list.id}`}>   <FaLink /></Link>
                             {/* <Link to="/newsItem">News Item</Link> */}
                           </div>
                         </div>

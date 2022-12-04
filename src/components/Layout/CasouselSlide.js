@@ -49,7 +49,7 @@ function CasouselSlide() {
       >
         { isLoadingBanner ? 
         <>
-         <Spinner animation="border" />;
+         <Spinner animation="border" />
         <p>Loading banner</p>
         </> : 
         user.map((review) => (
