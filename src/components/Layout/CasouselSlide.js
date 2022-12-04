@@ -12,12 +12,16 @@ import carouselThree from "../../assests/ImageThreeDecore.png";
 import decoreOne from "../../assests/Top-Nav-Decore.png";
 import decoreSecond from "../../assests/Decore.png";
 import decoreThree from "../../assests/thirdDecore.png";
+import Spinner from 'react-bootstrap/Spinner';
+
 //Fetch data from api 
 //Adding animations
 function CasouselSlide() {
   const [user, setUser] = useState([]);
+  const [isLoadingBanner, setIsLoadingBanner] = useState(false);
 
   const fetchData = () => {
+    setIsLoadingBanner(true);
     return fetch("https://api.npoint.io/fee177346e7875554413")
       .then((response) => response.json())
       .then((data) => {
@@ -29,6 +33,7 @@ function CasouselSlide() {
         data.slides[1].itemUrl = decoreOne;
         data.slides[2].itemUrl = decoreSecond;
         data.slides[0].itemUrl = decoreThree;
+        setIsLoadingBanner(false);
       });
   };
 
@@ -43,7 +48,12 @@ function CasouselSlide() {
         style={{ overflow: "visible" }}
         className={classes["carousel-indicators"]}
       >
-        {user.map((review) => (
+        { isLoadingBanner ? 
+        <>
+         <Spinner animation="border" />;
+        <p>Loading banner</p>
+        </> : 
+        user.map((review) => (
           <Carousel.Item key={review.id}>
             <img className={classes.decore} src={review.itemUrl} alt="decore" />
             <Row>

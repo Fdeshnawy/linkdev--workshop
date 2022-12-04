@@ -13,8 +13,7 @@ function Pages() {
         <Routes>
           
         <Route path="/" element={<App />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/newsItem/:id" element={<Newsitem />} />
+     
         
         </Routes>
       </BrowserRouter>
