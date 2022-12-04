@@ -30,7 +30,7 @@ function Newsitem() {
       {item.map((list) => (
 
           <Card.Body>
-          <Card.Title>{list.title}</Card.Title>
+            <p>{list.title}</p>
           <Card.Img variant="top" src={list.urlToImage} />
           <Card.Text>
           {list.content}
