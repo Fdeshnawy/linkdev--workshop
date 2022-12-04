@@ -65,11 +65,12 @@ function CasouselSlide() {
                     className="d-flex "
                     variant=""
                     style={{ backgroundColor: " #FF7C16", color: "white" }}
+                    href="https://www.google.com/"
                   >
                     Find out more
                   </Button>
                   <img width={150} src={demo} alt="demo" />
-                  <p className={classes.txt}>Play demo</p>
+                  <a className={classes.txt} href="{videoUrl}" style={{color:'#000',textDecoration:'none' }}>Play demo</a>
                 </div>
               </Col>
               <Col>

@@ -170,3 +170,24 @@ $background-color_2: #F215B6;
 		font-size: 15px;
 	}
 }
+@media (max-width:800px) {
+	.things{
+		display: flex;
+		flex-direction: column-reverse;
+		margin-bottom: 100px;
+		
+
+	}
+	.deliver{
+		width: 100%;
+	}
+	.leftSec {
+		width: 300px;
+		margin-bottom: 100px;
+
+
+	}
+	.deliver--p{
+		margin-bottom: 100px;
+	}
+}

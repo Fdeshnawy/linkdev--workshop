@@ -8,7 +8,7 @@ import app from "../../assests/Play-Store.png";
 import "./Footer.css";
 function Footer() {
   return (
-    <section className="m-5 d-flex justify-content-between align-tems-center">
+    <section className="footer m-5 d-flex justify-content-between align-tems-center">
       <div className="d-flex flex-column align-items-center" style={{width:'30%'}}>
         <img width={100} src={logo} alt="logo" />
         <p className="foot-p mt-4" >
