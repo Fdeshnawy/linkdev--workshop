@@ -20,9 +20,8 @@ body {
   margin: 2%  !important ;
   padding: 0 !important;
   background: #FFFFFF 0% 0% no-repeat padding-box !important;
-
-opacity: 1 !important;
-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  opacity: 1 !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 
 }
@@ -45,3 +44,8 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
+.card-edge{
+  width: 40rem !important;
+  margin: auto !important;
+
+}
